@@ -7,8 +7,7 @@
 |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | 103 | 116 | 104 | 114 | 47% | 47.5% | 47% |
 
-![Result](https://github.com/dentallio/hall-ai/blob/caries_detection/caries_detection/nnUNet/Result.jpg?raw=true "Result")
-
+![Result](https://github.com/jasonyeong/CariesDetection/blob/master/nnUNet/Result.jpg?raw=true "Result")
 
 ## Introduction of each file
 

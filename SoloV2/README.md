@@ -7,7 +7,7 @@ Joey所分享的影像分割模型
 |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | 318 | 559 | 443 | 0 | 36.3% | 100% | 53.22% |
 
-![Result](https://github.com/dentallio/hall-ai/blob/caries_detection/caries_detection/SoloV2/caries/result.jpg?raw=true "Result")
+![Result](https://github.com/jasonyeong/CariesDetection/blob/master/SoloV2/caries/result.jpg?raw=true "Result")
 
 ## Introduction of each file
 

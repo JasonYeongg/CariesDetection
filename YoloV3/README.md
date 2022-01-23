@@ -9,7 +9,7 @@
 | ClassProbThreshold > 0.5 | 257 | 161 | 100 | 163 | 61.5% | 61.2% | 61.3% |
 | IOU > 0.5 | 101 | 64 | 98 | 165 | 61.2% | 38% | 46.9% |
 
-![Result](https://github.com/dentallio/hall-ai/blob/caries_detection/caries_detection/YoloV3/Result.jpg?raw=true "Result")
+![Result](https://github.com/jasonyeong/CariesDetection/blob/master/YoloV3/Result.jpg?raw=true "Result")
 
 
 ## Introduction of each file

@@ -9,6 +9,7 @@
 |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | 29 | 41 | 29 | 99 | 41.4% | 22.7% | 29.3% |
 
-![Result](https://github.com/dentallio/hall-ai/blob/caries_detection/caries_detection/FastAI/result.jpg?raw=true "Result")
+![Result](
+https://github.com/jasonyeong/CariesDetection/blob/master/FastAI/result.jpg?raw=true "Result")
 
 

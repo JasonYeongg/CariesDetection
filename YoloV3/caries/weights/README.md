@@ -1,0 +1,1 @@
+# [darknet-yolov3_final.weights](https://drive.google.com/file/d/1s2-eiPQa6VvU5F9o7toxXjcp6J19l3MX/view?usp=sharing "link")

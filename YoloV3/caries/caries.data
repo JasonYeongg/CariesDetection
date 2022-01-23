@@ -1,0 +1,6 @@
+classes = 1
+train  = ../Caries/Train/caries_train.txt
+valid  = ../Caries/Train/caries_val.txt
+names = ../Caries/classes.names
+backup = ../Caries/weights
+

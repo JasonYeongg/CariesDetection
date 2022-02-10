@@ -55,7 +55,7 @@ classes名稱
 
 ### YoloV3:
 
-![YoloV3 System](https://www.researchgate.net/publication/352757579/figure/fig1/AS:1038791984812032@1624678717512/Architecture-of-the-YOLO-based-CAA-system_W640.jpg "YoloV3 System")
+![YoloV3 System](https://www.researchgate.net/publication/352757579/figure/fig4/AS:1116690653954049@1643251207096/Architecture-of-the-YOLO-based-CAA-system.png "YoloV3 System")
 
 ### Caries Detection Process:
 

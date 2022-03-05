@@ -61,7 +61,7 @@
 ### 程式流程圖:
 
 ```mermaid
-flowchart TD
+flowchart LR
 A([X光片原圖]) --> F[X光片屏蔽雜訊後]
 B([組織分類]) --> C[牙齒Mask]
 B --> D[蛀牙Mask]

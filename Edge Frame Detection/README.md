@@ -58,32 +58,23 @@
 ![5](https://github.com/jasonyeong/CariesDetection/blob/master/Edge%20Frame%20Detection/README_IMG/5.jpg?raw=true "5")
 > 因為大部分Caries都是在牙齒兩側，為了加強兩側的訓練，我們在給予資料Sample Weight時按照Hough Line Detection得到的頂部資料乘上0.5以達到削弱的效果
 
-```mermaid
-flowchart LR
-A[Hard] -->|Text| B(Round)
-B --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-
-
 ### 程式流程圖:
 
-mermaid
-graph TD;
-X光片原圖-->X光片(屏蔽雜訊後);
-組織分類-->牙齒Mask;
-組織分類-->蛀牙Mask;
-組織分類-->齒槽骨Mask;
-牙齒Mask-->計算每棵牙齒平均寬度;
-牙齒Mask--> 將Mask以外的地方 \n覆蓋上黑色的Mask \n減少影響訓練的雜訊 -->X光片(屏蔽雜訊後);
-牙齒Mask--> 利用erode和canny \n取得框選資料用的用的edge -->資料框選線;
-計算每棵牙齒平均寬度--> 通過放大和縮小產生不同尺寸 \n用於框選資料的框 -->資料框;
-齒槽骨Mask --> 偵測到大部分該Mask就取消該框 -->資料框;
-資料框--> 計算每個框之間的overlap\n並給予上限 -->訓練用資料;
-資料框選線-->訓練用資料;
-牙齒Mask--> 通過HoughLines尋找接近水平的切線 -->牙齒切線;
-牙齒切線--> 包含牙齒切線的訓練資料\n給予0.5的SampleWeight -->SampleWeight;
-訓練用資料-->SampleWeight;
-蛀牙Mask--> 通過計算訓練用資料框選到的\n蛀牙大小給予個別不同的SampleWeight -->SampleWeight;
+```mermaid
+flowchart TD
+X光片原圖-->X光片(屏蔽雜訊後)
+組織分類-->牙齒Mask
+組織分類-->蛀牙Mask
+組織分類-->齒槽骨Mask
+牙齒Mask-->計算每棵牙齒平均寬度
+牙齒Mask--> 將Mask以外的地方 \n覆蓋上黑色的Mask \n減少影響訓練的雜訊 -->X光片(屏蔽雜訊後)
+牙齒Mask--> 利用erode和canny \n取得框選資料用的用的edge -->資料框選線
+計算每棵牙齒平均寬度--> 通過放大和縮小產生不同尺寸 \n用於框選資料的框 -->資料框
+齒槽骨Mask --> 偵測到大部分該Mask就取消該框 -->資料框
+資料框--> 計算每個框之間的overlap\n並給予上限 -->訓練用資料
+資料框選線-->訓練用資料
+牙齒Mask--> 通過HoughLines尋找接近水平的切線 -->牙齒切線
+牙齒切線--> 包含牙齒切線的訓練資料\n給予0.5的SampleWeight -->SampleWeight
+訓練用資料-->SampleWeight
+蛀牙Mask--> 通過計算訓練用資料框選到的\n蛀牙大小給予個別不同的SampleWeight -->SampleWeight
+```

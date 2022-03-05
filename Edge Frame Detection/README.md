@@ -58,6 +58,12 @@
 ![5](https://github.com/jasonyeong/CariesDetection/blob/master/Edge%20Frame%20Detection/README_IMG/5.jpg?raw=true "5")
 > 因為大部分Caries都是在牙齒兩側，為了加強兩側的訓練，我們在給予資料Sample Weight時按照Hough Line Detection得到的頂部資料乘上0.5以達到削弱的效果
 
-
+```mermaid
+flowchart LR
+A[Hard] -->|Text| B(Round)
+B --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]
+```
 
 

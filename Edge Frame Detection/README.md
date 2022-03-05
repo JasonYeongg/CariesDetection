@@ -75,8 +75,8 @@ I -->|計算每個框之間的overlap\n並給予上限| J[訓練用圖片]
 F --> J
 H --> J
 C -->|通過HoughLines尋找接近水平的切線| K[牙齒切線]
-K -->|包含牙齒切線的訓練資料\n給予0.5的SampleWeight| L[SampleWeight]
-J --> L
+J --> L[SampleWeight]
+K -->|包含牙齒切線的訓練資料\n給予0.5的SampleWeight| L
 D -->|通過計算訓練用資料框選到的\n蛀牙大小給予個別不同的SampleWeight| L
 J --> M[(訓練用資料)]
 L --> M

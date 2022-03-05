@@ -64,7 +64,7 @@
 flowchart TD
 A[Hard] -->|Text| B(Round)
 B --> C{Decision}
-C -->|OneTwo| D[Result 1]
+C -->|OneTwo| D[屏蔽雜訊後]
 C -->|Two| E[Result 2]
 ```
 

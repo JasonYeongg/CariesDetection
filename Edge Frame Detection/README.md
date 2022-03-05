@@ -71,6 +71,32 @@ C -->|Two| E[Result 2]
 ```mermaid
 flowchart TD
 A[X光片原圖] --> F[X光片(屏蔽雜訊後)]
+
+```
+```mermaid
+flowchart TD
+A[] --> F[X光片(屏蔽雜訊後)]
+B[組織分類] --> C[牙齒Mask]
+B --> D[蛀牙Mask]
+B --> E[齒槽骨Mask]
+C --> G[計算每棵牙齒平均寬度]
+C -->|將Mask以外的地方 \n覆蓋上黑色的Mask \n減少影響訓練的雜訊| F
+C -->|利用erode和canny \n取得框選資料用的用的edge| H[資料框選線]
+G -->|通過放大和縮小產生不同尺寸 \n用於框選資料的框| I[資料框]
+E -->|偵測到大部分該Mask就取消該框| I
+I -->|計算每個框之間的overlap\n並給予上限| J[訓練用資料]
+F --> J
+H --> J
+C -->|通過HoughLines尋找接近水平的切線| K[牙齒切線]
+K -->|包含牙齒切線的訓練資料\n給予0.5的SampleWeight| L[SampleWeight]
+J --> L
+D -->|通過計算訓練用資料框選到的\n蛀牙大小給予個別不同的SampleWeight| L
+```
+
+
+```mermaid
+flowchart TD
+A[X光片原圖] --> F[X光片(屏蔽雜訊後)]
 B[組織分類] --> C[牙齒Mask]
 B --> D[蛀牙Mask]
 B --> E[齒槽骨Mask]

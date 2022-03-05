@@ -61,15 +61,23 @@
 ### 程式流程圖:
 
 ```mermaid
-flowchart LR
+flowchart TD
 A[Hard] -->|Text| B(Round)
 B --> C{Decision}
-C -->|One| D[Result 1]
+C -->|OneTwo| D[Result 1]
 C -->|Two| E[Result 2]
 ```
 
 ```mermaid
-flowchart TD
+flowchart LR
+A[Hard] -->|Text| B(Round)
+B --> C{Decision}
+C -->|One\nTwo| D[Result 1]
+C -->|Two| E[Result 2]
+```
+
+```mermaid
+flowchart LR
 A[X光片原圖] --> F[X光片(屏蔽雜訊後)]
 B[組織分類] --> C[牙齒Mask]
 B[組織分類] --> D[蛀牙Mask]

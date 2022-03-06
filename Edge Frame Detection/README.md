@@ -81,6 +81,6 @@ K -->|包含牙齒切線的訓練資料\n給予0.5的SampleWeight| L
 D -->|通過IOU計算訓練用資料框選到的\n蛀牙大小給予個別不同的SampleWeight| L
 end
 subgraph data_input.py
-J -->|统一图片尺寸並標準化每張資料,\n並隨即淘汰30%的normal資料| [處理後訓練圖片]
+J -->|统一图片尺寸並標準化每張資料,\n並隨即淘汰30%的normal資料| M[處理後訓練圖片]
 end
 ```

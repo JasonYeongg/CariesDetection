@@ -89,7 +89,7 @@ M -->|圖片經過ImageDataGenerator做rotation和flip| O[增強處理後的圖�
 O --> P{將訓練資料按KFold分配}
 N --> P
 L --> P
-P --> Q[Oversampling:通過不斷隨機複製\n數量少的一方直到與另一方一樣數量]
+P --> Q[/Oversampling:通過不斷隨機複製\n數量少的一方直到與另一方一樣數量\]
 Q --> Q1[TrainingData]
 Q --> Q2[ValidationData]
 Q --> Q3[TestingData]

@@ -62,9 +62,9 @@
 
 ```mermaid
 flowchart LR
-subgraph datahandle.py
 A([X光片原圖]) --> F[X光片屏蔽雜訊後]
 B([組織分類]) --> C[牙齒Mask]
+subgraph datahandle.py
 B --> D[蛀牙Mask]
 B --> E[齒槽骨Mask]
 C --> G[計算每棵牙齒平均寬度]

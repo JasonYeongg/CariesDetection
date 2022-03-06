@@ -79,16 +79,20 @@ C -->|通過HoughLines尋找接近水平的切線| K[牙齒切線]
 J --> L[SampleWeight]
 K -->|包含牙齒切線的訓練資料\n給予0.5的SampleWeight| L
 D -->|通過IOU計算訓練用資料框選到的\n蛀牙大小給予個別不同的SampleWeight| L
+J --> J1[訓練用圖片]
 end
 subgraph data_input.py
-J -->|统一图片尺寸並標準化每張資料,\n並隨即淘汰30%的normal資料| M[處理後訓練圖片]
-J -->|依照框到的內容決定完label後\n再做to_categorical處理| N[label]
+J1 -->|统一图片尺寸並標準化每張資料,\n並隨即淘汰30%的normal資料| M[處理後訓練圖片]
+J1 -->|依照框到的內容決定完label後\n再做to_categorical處理| N[label]
 M -->|圖片經過ImageDataGenerator做rotation和flip| O[增強處理後的圖片]
 end
 subgraph train.py
-O --> P{將訓練資料按KFold分配}
-N --> P
-L --> P
+O --> O1[增強處理後的圖片]
+N --> N1[label]
+L --> L1[SampleWeight]
+O1 --> P{將訓練資料按KFold分配}
+N1 --> P
+L1 --> P
 P --> Q[/Oversampling:通過不斷隨機複製\n數量少的一方直到與另一方一樣數量\]
 Q --> Q1[TrainingData]
 Q --> Q2[ValidationData]
@@ -100,7 +104,8 @@ Q2 --> R[(SimpleCNN)]
 R --> S([Model])
 end
 subgraph predict.py
-S --> |通過max和armax取得model給出的結果| SA[Predict結果]
+S --> S1([Model])
+S1 --> |通過max和armax取得model給出的結果| SA[Predict結果]
 Q3 --> SA
 SA --> |將predict的結果通過NMS做處理,\n淘汰重複且分數低的Result| SR[蛀牙辨識]
 end

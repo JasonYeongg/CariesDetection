@@ -82,7 +82,7 @@ D -->|通過IOU計算訓練用資料框選到的\n蛀牙大小給予個別不同
 end
 subgraph data_input.py
 J --> J1[訓練用圖片]
-J1 -->|统一图片尺寸並標準化\n每張資料,並隨即淘汰30%的\nnormal資料| M[處理後訓練圖片]
+J1 -->|统一图片尺寸並\n標準化每張資料,\n並隨即淘汰30%的\nnormal資料| M[處理後訓練圖片]
 J1 -->|依照框到的內容決定\nlabel後再做\nto_categorical處理| N[label]
 M -->|圖片經過ImageDataGenerator\n做rotation和flip| O[增強處理後的圖片]
 end

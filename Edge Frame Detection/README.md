@@ -89,19 +89,19 @@ M -->|圖片經過ImageDataGenerator做rotation和flip| O[增強處理後的圖�
 O --> P{將訓練資料按KFold分配}
 N --> P
 L --> P
-P --> P1\{\{Oversampling:通過不斷隨機複製\n數量少的一方直到與另一方一樣數量\}\}
-P1 --> Q1[TrainingData]
-P1 --> Q2[ValidationData]
-P1 --> Q3[TestingData]
-R --> RA([Model])
+P --> Q\{\{Oversampling:通過不斷隨機複製\n數量少的一方直到與另一方一樣數量\}\}
+Q --> R[TrainingData]
+Q --> S[ValidationData]
+Q --> T[TestingData]
+U --> V([Model])
 end
 subgraph network.py
-Q1 --> R[(SimpleCNN)]
-Q2 --> R[(SimpleCNN)]
+R --> U[(SimpleCNN)]
+S --> U[(SimpleCNN)]
 end
 subgraph predict.py
-RA --> |通過max和armax取得model給出的結果| S[Predict結果]
-Q3 --> S
-S --> |將predict的結果通過NMS做處理,\n淘汰重複且分數低的Result| SN[蛀牙辨識]
+V --> |通過max和armax取得model給出的結果| W[Predict結果]
+T --> W
+W --> |將predict的結果通過NMS做處理,\n淘汰重複且分數低的Result| X[蛀牙辨識]
 end
 ```

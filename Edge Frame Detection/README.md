@@ -62,6 +62,7 @@
 
 ```mermaid
 flowchart LR
+subgraph datahandle.py
 A([X光片原圖]) --> F[X光片屏蔽雜訊後]
 B([組織分類]) --> C[牙齒Mask]
 B --> D[蛀牙Mask]
@@ -77,7 +78,8 @@ H --> J
 C -->|通過HoughLines尋找接近水平的切線| K[牙齒切線]
 J --> L[SampleWeight]
 K -->|包含牙齒切線的訓練資料\n給予0.5的SampleWeight| L
-D -->|通過計算訓練用資料框選到的\n蛀牙大小給予個別不同的SampleWeight| L
+D -->|通過IOU計算訓練用資料框選到的\n蛀牙大小給予個別不同的SampleWeight| L
+end
 J --> M[(訓練用資料)]
 L --> M
 ```

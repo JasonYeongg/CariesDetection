@@ -90,18 +90,18 @@ O --> P{將訓練資料按KFold分配}
 N --> P
 L --> P
 P --> Q[Oversampling:通過不斷隨機複製\n數量少的一方直到與另一方一樣數量]
-Q --> R[TrainingData]
-Q --> S[ValidationData]
-Q --> T[TestingData]
-U --> V([Model])
+Q --> Q1[TrainingData]
+Q --> Q2[ValidationData]
+Q --> Q3[TestingData]
+R --> S([Model])
 end
 subgraph network.py
-R --> U[(SimpleCNN)]
-S --> U[(SimpleCNN)]
+Q1 --> R[(SimpleCNN)]
+Q2 --> R[(SimpleCNN)]
 end
 subgraph predict.py
-V --> |通過max和armax取得model給出的結果| W[Predict結果]
-T --> W
-W --> |將predict的結果通過NMS做處理,\n淘汰重複且分數低的Result| X[蛀牙辨識]
+S --> |通過max和armax取得model給出的結果| SA[Predict結果]
+Q3 --> SA
+SA --> |將predict的結果通過NMS做處理,\n淘汰重複且分數低的Result| SR[蛀牙辨識]
 end
 ```

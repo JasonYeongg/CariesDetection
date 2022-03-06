@@ -64,9 +64,9 @@
 flowchart LR
 A([X光片原圖]) --> F[X光片屏蔽雜訊後]
 B([組織分類]) --> C[牙齒Mask]
-subgraph datahandle.py
 B --> D[蛀牙Mask]
 B --> E[齒槽骨Mask]
+subgraph datahandle.py
 C --> G[計算每棵牙齒平均寬度]
 C -->|將Mask以外的地方 \n覆蓋上黑色的Mask \n減少影響訓練的雜訊| F
 C -->|利用erode和canny \n取得框選資料用的用的edge| H[資料框選線]

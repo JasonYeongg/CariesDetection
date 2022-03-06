@@ -105,9 +105,9 @@ Q2 --> R[(SimpleCNN)]
 R --> S([Model])
 end
 subgraph predict.py
-S --> S1([Model])
+S --> S1([Predict])
+Q3 --> S1
 S1 --> |通過max和armax取得model給出的結果| SA[Predict結果]
-Q3 --> SA
 SA --> |將predict的結果通過NMS做處理,\n淘汰重複且分數低的Result| SR[蛀牙辨識]
 end
 ```

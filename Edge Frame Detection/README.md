@@ -61,7 +61,7 @@
 ### 程式流程圖:
 
 ```mermaid
-flowchart LR
+flowchart TD
 subgraph datahandle.py
 A([X光片原圖]) --> F[X光片屏蔽雜訊後]
 B([組織分類]) --> C[牙齒Mask]

@@ -83,9 +83,9 @@ end
 subgraph data_input.py
 J -->|统一图片尺寸並標準化每張資料,\n並隨即淘汰30%的normal資料| M[處理後訓練圖片]
 J -->|依照框到的內容決定完label後\n再做to_categorical處理| N[label]
+M -->|圖片經過ImageDataGenerator做rotation和flip| O[增強處理後的圖片]
 end
 subgraph train.py
-M -->|圖片經過ImageDataGenerator做rotation和flip| O[增強處理後的圖片]
 O --> P{將訓練資料按KFold分配}
 N --> P
 L --> P
@@ -93,11 +93,11 @@ P --> Q[/Oversampling:通過不斷隨機複製\n數量少的一方直到與另�
 Q --> Q1[TrainingData]
 Q --> Q2[ValidationData]
 Q --> Q3[TestingData]
-R --> S([Model])
 end
 subgraph network.py
 Q1 --> R[(SimpleCNN)]
 Q2 --> R[(SimpleCNN)]
+R --> S([Model])
 end
 subgraph predict.py
 S --> |通過max和armax取得model給出的結果| SA[Predict結果]

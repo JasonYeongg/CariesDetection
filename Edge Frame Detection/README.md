@@ -82,5 +82,26 @@ D -->|通過IOU計算訓練用資料框選到的\n蛀牙大小給予個別不同
 end
 subgraph data_input.py
 J -->|统一图片尺寸並標準化每張資料,\n並隨即淘汰30%的normal資料| M[處理後訓練圖片]
+J -->|依照框到的內容決定完label後\n再做to_categorical處理| N[label]
+end
+subgraph train.py
+M -->|圖片經過ImageDataGenerator做rotation和flip| O[增強處理後的圖片]
+O --> P{將訓練資料按KFold分配}
+N --> P
+L --> P
+P --> P1\{\{Oversampling:通過不斷隨機複製\n數量少的一方直到與另一方一樣數量\}\}
+P1 --> Q1[TrainingData]
+P1 --> Q2[ValidationData]
+P1 --> Q3[TestingData]
+R --> RA([Model])
+end
+subgraph network.py
+Q1 --> R[(SimpleCNN)]
+Q2 --> R[(SimpleCNN)]
+end
+subgraph predict.py
+RA --> |通過max和armax取得model給出的結果| S[Predict結果]
+Q3 --> S
+S --> |將predict的結果通過NMS做處理,\n淘汰重複且分數低的Result| SN[蛀牙辨識]
 end
 ```

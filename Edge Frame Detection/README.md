@@ -79,9 +79,9 @@ C -->|通過HoughLines尋找接近水平的切線| K[牙齒切線]
 J --> L[SampleWeight]
 K -->|包含牙齒切線的訓練資料\n給予0.5的SampleWeight| L
 D -->|通過IOU計算訓練用資料框選到的\n蛀牙大小給予個別不同的SampleWeight| L
-J --> J1[訓練用圖片]
 end
 subgraph data_input.py
+J --> J1[訓練用圖片]
 J1 -->|统一图片尺寸並標準化每張資料,\n並隨即淘汰30%的normal資料| M[處理後訓練圖片]
 J1 -->|依照框到的內容決定完label後\n再做to_categorical處理| N[label]
 M -->|圖片經過ImageDataGenerator做rotation和flip| O[增強處理後的圖片]

@@ -3,6 +3,9 @@
 
 [Detecting Dental Caries Using FastAI: A Web Application You Can Try For Yourself](https://medium.com/analytics-vidhya/detecting-dental-caries-using-fastai-a-web-application-you-can-try-for-yourself-6cc632ab2a3d "link")
 
+## Notebook Viewer
+[FastAI.ipynb](https://nbviewer.org/github/jas0821/CariesDetection/blob/master/FastAI/FastAI.ipynb "link")
+
 ## Result on Caries
 
 | TP | FN | include | empty(FP) | Sensitivity | Precision | F1 |

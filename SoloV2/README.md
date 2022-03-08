@@ -1,5 +1,4 @@
 # SOLOV2
-Joey所分享的影像分割模型
 
 ## Result on Caries
 
@@ -27,6 +26,6 @@ Joey所分享的影像分割模型
 
 用來在訓練完後做predict
 
-[SoloV2的使用說明](https://docs.google.com/presentation/d/1ZeRDzgs-P2y4XMrfJyApH0MwY1YIS0gWhdT-39cS1dw/edit?usp=sharing "link")
+
 
 

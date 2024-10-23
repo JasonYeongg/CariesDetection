@@ -3,55 +3,54 @@
 
 ## Result on Caries
 
-|  | TP | FN | include | empty(FP) |  Sensitivity |   Precision |   F1 |
-|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| ClassProbThreshold > 0.01 | 374 | 258 | 117 | 146 | 59.2% | 71.9% | 64.9% |
-| ClassProbThreshold > 0.5 | 257 | 161 | 100 | 163 | 61.5% | 61.2% | 61.3% |
-| IOU > 0.5 | 101 | 64 | 98 | 165 | 61.2% | 38% | 46.9% |
+|  | TP | FN | Include | Empty (FP) | Sensitivity | Precision | F1 |
+|:-----------------------------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| ClassProbThreshold > 0.01      | 374 | 258 | 117 | 146 | 59.2% | 71.9% | 64.9% |
+| ClassProbThreshold > 0.5       | 257 | 161 | 100 | 163 | 61.5% | 61.2% | 61.3% |
+| IOU > 0.5                      | 101 | 64  | 98  | 165 | 61.2% | 38%   | 46.9% |
 
 ![Result](https://github.com/jasonyeong/CariesDetection/blob/master/YoloV3/Result.jpg?raw=true "Result")
 
-
-## Introduction of each file
+## Introduction of Each File
 
 > pross.py
 
-將url轉換成json，再把caries和mask隨機做augmentation並存成jpg和txt後再隨機區分training和validation資料
+Converts URLs into JSON, randomly augments caries and mask data, saves them as JPG and TXT files, then randomly splits the data into training and validation sets.
 
 > 2yolo.py
 
-將資料轉換成可以提供Yolo訓練的模式
+Converts the data into a format compatible with Yolo for training.
 
 > detect.py
 
-利用訓練好的model以及分割好的validation資料做測試
+Tests using the trained model and the split validation data.
 
 > Caries/caries.data
 
-classes數量以及資料路徑
+Defines the number of classes and the data paths.
 
 > Caries/classes.names
 
-classes名稱
+Lists the class names.
 
 > Caries/darknet-yolov3.cfg
 
-訓練相關參數
+Contains the training parameters.
 
-## Introduction to the YoloV3
-[相關教程](https://learnopencv.com/training-yolov3-deep-learning-based-custom-object-detector/ "link")
+## Introduction to YoloV3
+[Related Tutorial](https://learnopencv.com/training-yolov3-deep-learning-based-custom-object-detector/ "link")
 
-## Introduction to the paper
+## Introduction to the Paper
 
 ### Dataset:	
 
 * 800 (train)
 * 200 (test & validation)
-> (Did not use any image enhancement or pre-processing methods to improve the bitewing images)
+> (No image enhancement or pre-processing was applied to improve the bitewing images)
 
 ### Augmentation:	
 
-* Rotation, scaling, zooming, and cropping operations
+* Rotation, scaling, zooming, and cropping operations.
 
 ### YoloV3:
 
@@ -67,8 +66,8 @@ classes名稱
 
 ![Result](https://www.researchgate.net/publication/352757579/figure/fig7/AS:1038815187697669@1624684249625/The-green-box-represents-the-ground-truth-while-the-orange-box-represents-the-detections_W640.jpg "Result")
 
-> Green box: Ground truth; Orange box: Detections of proposed CNN model. 
+> Green box: Ground truth; Orange box: Detections of the proposed CNN model.
 
-> a, b, and c successful detections. 
+> a, b, and c: successful detections.
 
-> d, e, and f successful and false negative detections (only green boxes alone)
+> d, e, and f: successful and false negative detections (only green boxes alone).

@@ -27,15 +27,15 @@
 
 > pross.py
 
-先對每一張照片做postprocessing，然後再做blob detection，並把每個detect到的blob存成正方形的照片，並按照是否包含caries（/data/cv裡面的00000和00001）來分類，之後再對這些已經detect完的資料做訓練以及結果偵測
+First, postprocessing is applied to each image, followed by blob detection. Each detected blob is saved as a square image and classified based on whether it contains caries (according to 00000 and 00001 in /data/cv). After that, the detected data is used for training and result detection.
 
 > model/train.py
 
-之後再進行training和validation的資料分割以及用類似Edge frame detection的SimpleCnn來進行訓練（fold）
+Then, the data is split for training and validation, using a SimpleCnn model similar to Edge frame detection for training (fold).
 
 > predict/predict.py
 
-在這裡用以及在pross進行blob detection後的資料做predict，並同時計算blobness來淘汰不是caries的blob
+Here, the data from blob detection in the pross stage is used to make predictions, while also calculating "blobness" to eliminate blobs that are not caries.
 
 ## Introduction to the paper
 
@@ -43,19 +43,18 @@
 
 ![Blob](https://github.com/jasonyeong/CariesDetection/blob/master/Blob%20Detection/README_img/blob.jpg?raw=true "Blob")
 
->暗背景上的亮区域，或者亮背景上的暗区域，都可以称为blob。主要利用blob与背景之间的对比度来进行检测。
+>Bright areas on a dark background, or dark areas on a bright background, are referred to as blobs. Detection is mainly based on the contrast between the blob and the background.
 
 ### Laplacian of Gaussian (LoG):
 
 ![Laplacian of Gaussian (LoG)](https://github.com/jasonyeong/CariesDetection/blob/master/Blob%20Detection/README_img/Laplacian%20of%20Gaussian%20(LoG).jpg?raw=true "Laplacian of Gaussian (LoG)")
 
->速度最慢，但是最准确的一种算法
->先进行一系列不同尺度的高斯滤波，然后对滤波后的图像做Laplacian运算，将所有的图像进行叠加，局部最大值就是所要检测的blob
+>This is the slowest but most accurate algorithm.
+>It first applies a series of Gaussian filters at different scales, then performs a Laplacian operation on the filtered images. The local maximums in the combined image are the blobs to be detected.
 
 ### Preprocessing:
 
-120张牙科X光片，对其进行旋转、缩放和调整图像的大小的增强，产生11114张图像,
-再對图像还进行gray image scaling和blurring的预处理
+120 dental X-ray images are enhanced through rotation, scaling, and resizing, resulting in 11,114 images. These images are also preprocessed with gray image scaling and blurring.
 
 ### System flow diagram:
 

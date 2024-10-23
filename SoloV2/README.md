@@ -2,30 +2,26 @@
 
 ## Result on Caries
 
-| TP | FN | include | empty(FP) | Sensitivity | Precision | F1 |
+| TP | FN | Include | Empty (FP) | Sensitivity | Precision | F1 |
 |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | 318 | 559 | 443 | 0 | 36.3% | 100% | 53.22% |
 
 ![Result](https://github.com/jasonyeong/CariesDetection/blob/master/SoloV2/caries/result.jpg?raw=true "Result")
 
-## Introduction of each file
+## Introduction of Each File
 
 > caries
 
-文件夾裡面包含了在SoloV2上效果最好的model以及訓練資料
+This folder contains the best-performing model on SoloV2 along with the training data.
 
 > urljson.py
 
-將url上的資料都轉成json文件，以避免生成訓練資料時中斷
+Converts data from URLs into JSON files to avoid interruptions when generating training data.
 
 > train.py
 
-將資料隨機分類成training和validation後就開始訓練
+Randomly splits the data into training and validation sets, then begins training.
 
 > predict.py
 
-用來在訓練完後做predict
-
-
-
-
+Used to make predictions after training is completed.
